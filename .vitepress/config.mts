@@ -2,9 +2,10 @@ import { defineConfig } from 'vitepress'
 import { set_sidebar } from './utils/auto_sidebar'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base: '/docs-xy/',
   title: "桃花源",
   description: "筱宇工作室",
-  head: [["link", { rel: "icon", href: "/logo.png" }]],
+  head: [["link", { rel: "icon", href: "/docs-xy/logo.png" }]],
   themeConfig: {
     outlineTitle: '目录',
     outline: [2, 6],

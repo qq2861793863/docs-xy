@@ -1,26 +1,27 @@
-import { defineConfig } from 'vitepress'
-import { set_sidebar } from './utils/auto_sidebar'
+import { defineConfig } from "vitepress";
+import { set_sidebar } from "./utils/auto_sidebar";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: '/docs-xy/',
+  base: "/docs-xy/",
   title: "桃花源",
   description: "筱宇工作室",
   head: [["link", { rel: "icon", href: "/docs-xy/logo.png" }]],
   themeConfig: {
-    outlineTitle: '目录',
+    outlineTitle: "目录",
     outline: [2, 6],
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       {
-        text: '主页',
-        link: '/',
+        text: "主页",
+        link: "/",
         // items: [
         //   { text: '红丸分享', link: '/about' },
         //   { text: '前端技术', link: '/about' },
         // ]
       },
-      { text: '红丸分享', link: '/red-pill/chasup-master' },
-      { text: '前端技术', link: '/front-end/vue' },
+      { text: "红丸分享", link: "/red-pill/chasup-master" },
+      { text: "前端技术", link: "/front-end/vue" },
+      { text: "身体健康", link: "/healthy-life/body" },
     ],
 
     // sidebar: [
@@ -33,15 +34,14 @@ export default defineConfig({
     //   }
     // ],
     sidebar: {
-      '/red-pill/chasup-master': set_sidebar('/red-pill/chasup-master'),
-      '/front-end/vue': set_sidebar('/front-end/vue')
+      "/red-pill/chasup-master": set_sidebar("/red-pill/chasup-master"),
+      "/front-end/vue": set_sidebar("/front-end/vue"),
+      "healthy-life/body": set_sidebar("/healthy-life/body"),
     },
 
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/qq2861793863' }
-    ],
+    socialLinks: [{ icon: "github", link: "https://github.com/qq2861793863" }],
     footer: {
-      copyright: 'Copyright © 2024 筱宇工作室'
+      copyright: "Copyright © 2024 筱宇工作室",
     },
     // 设置搜索框的样式
     search: {
@@ -64,5 +64,4 @@ export default defineConfig({
       },
     },
   },
-
-})
+});

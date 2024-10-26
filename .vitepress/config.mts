@@ -21,8 +21,8 @@ export default defineConfig({
       },
       { text: "红丸分享", link: "/red-pill/chasup-master" },
       { text: "前端技术", link: "/front-end/vue" },
-      { text: "身体健康", link: "/healthy-life/body" },
       { text: "Python", link: "/python/crawler" },
+      { text: "身体健康", link: "/healthy-life/body" },
     ],
 
     // sidebar: [
@@ -37,8 +37,8 @@ export default defineConfig({
     sidebar: {
       "/red-pill/chasup-master": set_sidebar("/red-pill/chasup-master"),
       "/front-end/vue": set_sidebar("/front-end/vue"),
+      "/python/crawler": set_sidebar("/python/crawler"),
       "healthy-life/body": set_sidebar("/healthy-life/body"),
-      "/python/crawler": set_sidebar("//python/crawler"),
     },
 
     socialLinks: [{ icon: "github", link: "https://github.com/qq2861793863" }],

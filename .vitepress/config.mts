@@ -22,6 +22,7 @@ export default defineConfig({
       { text: "红丸分享", link: "/red-pill/chasup-master" },
       { text: "前端技术", link: "/front-end/vue" },
       { text: "Python", link: "/python/crawler" },
+      { text: "AI相关", link: "/ai/learning" },
       { text: "身体健康", link: "/healthy-life/body" },
     ],
 
@@ -38,6 +39,7 @@ export default defineConfig({
       "/red-pill/chasup-master": set_sidebar("/red-pill/chasup-master"),
       "/front-end/vue": set_sidebar("/front-end/vue"),
       "/python/crawler": set_sidebar("/python/crawler"),
+      "/ai/learning": set_sidebar("/ai/learning"),
       "healthy-life/body": set_sidebar("/healthy-life/body"),
     },
 

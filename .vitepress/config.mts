@@ -1,11 +1,46 @@
 import { defineConfig } from "vitepress";
 import { set_sidebar } from "./utils/auto_sidebar";
+
+/** 仅处理列表内页面：避免 VitePress 把正文里的 `<Foo` 当成 HTML/Vue 标签解析（如泛型、JSX 说明）。代码围栏内不改动。 */
+const MARKDOWN_ESCAPE_LT_FILES = new Set(["front-end/vue/TypeScript教程.md"]);
+
+function escapeTagLikeLtOutsideCodeBlocks(src: string): string {
+  const lines = src.split(/\r?\n/);
+  let inFence = false;
+  const out: string[] = [];
+  for (const line of lines) {
+    if (line.trimStart().startsWith("```")) {
+      inFence = !inFence;
+      out.push(line);
+      continue;
+    }
+    if (!inFence) {
+      out.push(line.replace(/<(?=[A-Za-z?!/])/g, "&lt;"));
+    } else {
+      out.push(line);
+    }
+  }
+  return out.join("\n");
+}
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   base: "/docs-xy/",
   title: "桃花源",
   description: "筱宇工作室",
   head: [["link", { rel: "icon", href: "/docs-xy/logo.png" }]],
+  markdown: {
+    config: (md) => {
+      const render = md.render.bind(md);
+      md.render = (src, env) => {
+        const rp = env?.relativePath?.replace(/\\/g, "/");
+        if (rp && MARKDOWN_ESCAPE_LT_FILES.has(rp)) {
+          src = escapeTagLikeLtOutsideCodeBlocks(src);
+        }
+        return render(src, env);
+      };
+    },
+  },
   themeConfig: {
     outlineTitle: "目录",
     outline: [2, 6],
